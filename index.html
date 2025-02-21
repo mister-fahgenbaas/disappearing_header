@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Header</title>
+  <style>
+    * {
+      /* border: yellow solid 0.2rem; */
+    }
+    header {
+      padding: 0.3rem;
+      height: 4rem;
+      background: navy;
+      display: flex;
+      gap: 2rem;
+      position: fixed;
+      left: 0;
+      right: 0;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+
+    body {
+      box-sizing: border-box;
+      font-family: Calibri;
+      color: white;
+      margin: 0;
+      padding: 0;
+      height: 1000px;
+    }
+
+    .logo, .title {
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      font-family: Norse-Bold;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    a:link {
+      text-decoration: none;
+      color: white;
+    }
+
+    img[src="internet.png"] {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    @font-face {
+      font-family: Norse-Bold;
+      src: url("./Norse-Bold.otf");
+    }
+
+  </style>
+  <script defer>
+
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("#foo");
+      if (window.scrollY != 0) {
+        header.style.opacity = 0;
+        header.style.visibility = "hidden";
+      }
+      else {
+        header.style.opacity = 1;
+        header.style.visibility = "initial";
+      }
+    });
+
+  </script>
+</head>
+<body> 
+  <header id="foo">
+    <div class="logo">
+      <a href="">
+        <img src="internet.png" alt="Logo">
+      </a>
+    </div>
+    <div class="title">COMPANY NAME</div>
+  </header>
+</body>
+</html>
